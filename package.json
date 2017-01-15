@@ -1,0 +1,17 @@
+{
+  "name": "stream_stalker",
+  "version": "0.0.1",
+  "description": "Use the APIs of multiple streaming platforms to never miss one.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "carpenecopinum@openmailbox.org",
+  "license": "ISC",
+  "dependencies": {
+    "libnotify": "^1.0.4",
+    "md5": "^2.2.1",
+    "request": "^2.79.0"
+  }
+}
