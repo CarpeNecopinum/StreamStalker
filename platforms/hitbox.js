@@ -11,13 +11,16 @@ module.exports = {
     {
         return new Promise((resolve, reject) => {
             request(
-                `https://api.hitbox.tv/user/${this.nameOf(channelUrl)}.json?showHidden=true`,
+                `https://api.hitbox.tv/media/live/${this.nameOf(channelUrl)}.json?showHidden=true`,
                 function(error, response, body) {
                     if (error) {
                         reject(response);
                     } else {
                         const data = JSON.parse(body);
-                        resolve(data.is_live === "1");
+                        resolve(data.livestream.media_is_live ? {
+                            game: data.livestream.category_name,
+                            title: data.livestream.media_status
+                        } : false);
                     }
                 }
             );

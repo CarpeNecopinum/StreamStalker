@@ -11,7 +11,13 @@ module.exports = {
     {
         let username = this.nameOf(channelUrl);
         return rp(`https://api.twitch.tv/kraken/streams/${username}?client_id=${clientId}`)
-            .then((body) => !!(JSON.parse(body)['stream']));
+            .then((body) => {
+                const data = JSON.parse(body);
+                return data.stream ? {
+                    game: data.stream.game,
+                    title: data.stream.channel.status
+                } : false;
+            });
     },
 
     avatarFor: function (channelUrl)

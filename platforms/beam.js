@@ -17,7 +17,10 @@ module.exports = {
                         reject(response);
                     } else {
                         const data = JSON.parse(body);
-                        resolve(!!data.online);
+                        resolve(data.online ? {
+                            game: data.type.name,
+                            title: data.name
+                        } : false);
                     }
                 }
             );
