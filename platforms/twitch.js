@@ -1,4 +1,4 @@
-const clientId = require('secrets/twitch.json').clientId;
+const clientId = require('./secrets/twitch.json').clientId;
 const rp = require('../request_promise');
 
 module.exports = {
