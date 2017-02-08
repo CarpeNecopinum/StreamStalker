@@ -18,7 +18,7 @@ module.exports = {
                     } else {
                         const data = JSON.parse(body);
                         resolve(data.online ? {
-                            game: data.type.name,
+                            game: data.type ? data.type.name : "No game selected",
                             title: data.name
                         } : false);
                     }
